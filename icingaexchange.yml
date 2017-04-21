@@ -1,0 +1,7 @@
+name: check_nvme
+description: "file:///README.md"
+url: "https://github.com/vorlon/check_nvme"
+type: Plugin
+license: gplv3
+target: Hardware
+tags: Storage, NVMe
