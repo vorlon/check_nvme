@@ -6,3 +6,13 @@ license: gplv3
 target: Hardware
 tags: Storage, NVMe
 vendor: Linux
+releases: 
+  - 
+    name: 0.1
+    description: "0.1 Release"
+    files: 
+      - 
+        name: check_nvme.sh
+        url: "file:///check_nvme.sh"
+        description: "First release"
+        checksum: 27b5e4f89b6c67e284910f7a963f765f
