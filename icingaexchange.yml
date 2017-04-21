@@ -5,3 +5,4 @@ type: Plugin
 license: gplv3
 target: Hardware
 tags: Storage, NVMe
+vendor: Linux
