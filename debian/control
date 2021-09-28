@@ -1,0 +1,16 @@
+Source: check-nvme
+Section: net
+Priority: optional
+Maintainer: Björn Lässig <b.laessig@pengutronix.de>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.5.1
+Homepage: https://github.com/vorlon/check_nvme.git
+Vcs-Browser: https://github.com/vorlon/check_nvme
+#Vcs-Git: https://salsa.debian.org/debian/check-nvme.git
+Rules-Requires-Root: no
+
+Package: monitoring-plugin-nvme
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: check status of NVMEe storage via nvme-cli
+ check status of NVMEe storage via nvme-cli
