@@ -31,6 +31,11 @@ USAGE="Usage: check_nvme.sh [-s] [-e] -d <device>
 "
 DISK=""
 SUDO=""
+if [ -x /usr/sbin/nvme ]; then
+    NVME=/usr/sbin/nvme
+else
+    NVME=nvme
+fi
 
 while getopts ":sed:" OPTS; do
   case $OPTS in
@@ -50,7 +55,7 @@ fi
 
 
 # read smart information from nvme-cli
-LOG=$(${SUDO} nvme smart-log ${DISK})
+LOG=$(${SUDO} ${NVME} smart-log ${DISK})
 
 MESSAGE=""
 CRIT=false
