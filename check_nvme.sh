@@ -25,11 +25,15 @@ export LC_ALL=C
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-USAGE="Usage: check_nvme.sh -d <device>"
+USAGE="Usage: check_nvme.sh [-s] -d <device>
+  -s .. call nvme smart-log using sudo
+"
 DISK=""
+SUDO=""
 
-while getopts ":d:" OPTS; do
+while getopts ":sd:" OPTS; do
   case $OPTS in
+    s) SUDO="sudo";;
     d) DISK="$OPTARG";;
     *) echo "$USAGE"
        exit 3;;
@@ -42,8 +46,9 @@ then
   exit 3
 fi
 
+
 # read smart information from nvme-cli
-LOG=$(nvme smart-log ${DISK})
+LOG=$(${SUDO} nvme smart-log ${DISK})
 
 MESSAGE=""
 CRIT=false
