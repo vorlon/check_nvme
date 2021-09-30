@@ -25,15 +25,17 @@ export LC_ALL=C
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-USAGE="Usage: check_nvme.sh [-s] -d <device>
+USAGE="Usage: check_nvme.sh [-s] [-e] -d <device>
   -s .. call nvme smart-log using sudo
+  -e .. ignore num_err_log_entries for state
 "
 DISK=""
 SUDO=""
 
-while getopts ":sd:" OPTS; do
+while getopts ":sed:" OPTS; do
   case $OPTS in
     s) SUDO="sudo";;
+    e) IGNORE_ERR_LOG_ENTRIES="1";;
     d) DISK="$OPTARG";;
     *) echo "$USAGE"
        exit 3;;
@@ -70,7 +72,9 @@ fi
 # Check number of errors logged
 value_num_err_log=$(echo "$LOG" | awk '$1 == "num_err_log_entries" {print $3}')
 if [ $value_num_err_log != 0 ]; then
-  CRIT=true
+  if [ -z ${IGNORE_ERR_LOG_ENTRIES+USET} ]; then
+    CRIT=true
+  fi
   MESSAGE="$MESSAGE $DISK has errors logged ($value_num_err_log) "
 fi
 
