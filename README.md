@@ -25,9 +25,9 @@ Matthias Geerdsen <mg@geerdsen.net>
 
 ## Contributions
 
-* [farom]{https://github.com/Farom} add sudo support
-* [farom]{https://github.com/Farom} add option to ignore num_err_log_entries in smart-log
-* [farom]{https://github.com/Farom} add support for finding nvme in /usr/sbin
+* [farom](https://github.com/Farom) add sudo support
+* [farom](https://github.com/Farom) add option to ignore num_err_log_entries in smart-log
+* [farom](https://github.com/Farom) add support for finding nvme in /usr/sbin
 
 ## Thanks
 
