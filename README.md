@@ -4,7 +4,11 @@ monitoring plugin to check status of NVMEe storage via nvme-cli
 
 ## Usage
 
-check_nvme.sh -d _device_
+```
+check_nvme.sh [-s] [-e] -d <device>
+  -s .. call nvme smart-log using sudo
+  -e .. ignore num_err_log_entries for state
+```
 
 ## Requirements
 
